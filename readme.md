@@ -10,8 +10,9 @@
 
 ### Сортировки
 
-- [Быстрая сортировка]()
-- [Сортировка слиянием]()
+- [Сортировка пузырьком](/Seljmov.CS/Algorithms/BubbleSort.cs) - `O(n^2)`
+- [Быстрая сортировка](/Seljmov.CS/Algorithms/QuickSort.cs) - `O(n log n)`
+- [Сортировка слиянием](/Seljmov.CS/Algorithms/MergeSort.cs) - `O(n log n)`
 
 ## PS
 
