@@ -1,23 +1,21 @@
-namespace Seljmov.CS;
+namespace Seljmov.CS.Algorithms;
 
 /// <summary>
-/// Класс для сортировки
+/// Реализация быстрой сортировки
 /// </summary>
-public static class Sort
+public static class QuickSort
 {
     private static readonly Random Random = new();
-
-    #region QuickSort
 
     /// <summary>
     /// Быстрая сортировка
     /// </summary>
     /// <remarks>https://ru.wikipedia.org/wiki/Быстрая_сортировка</remarks>
     /// <param name="array">Сортируемый массив</param>
-    public static void QuickSort(int[] array)
+    public static void Do(int[] array)
     {
         if (array.Length <= 1) return;
-        
+
         QuickSortWrapper(array, 0, array.Length - 1);
     }
 
@@ -31,7 +29,7 @@ public static class Sort
     {
         // Если нижняя граница больше или равна верхней, то сортировать нечего
         if (low >= high) return;
-        
+
         // Получаем индекс опорного элемента
         var p = RandomizedPartition(array, low, high);
         // Сортируем левую часть
@@ -72,65 +70,4 @@ public static class Sort
             j--;
         }
     }
-
-    #endregion
-
-    #region MergeSort
-
-    /// <summary>
-    /// Cортировка слиянием
-    /// </summary>
-    /// <remarks>https://ru.wikipedia.org/wiki/Сортировка_слиянием</remarks>
-    /// <param name="array">Сортируемый массив</param>
-    public static void MergeSort(int[] array)
-    {
-        // Если массив состоит из одного элемента, то сортировать нечего
-        if (array.Length <= 1) return;
-
-        // Разбиваем массив на две части
-        var n = array.Length / 2;
-        var left = new int[n];
-        var right = new int[array.Length - n];
-
-        // Копируем элементы в новые массивы
-        for (var i = 0; i < n; i++)
-            left[i] = array[i];
-
-        for (var i = n; i < array.Length; i++)
-            right[i - n] = array[i];
-            
-        // Сортируем левую часть
-        MergeSort(left);
-        // Сортируем правую часть
-        MergeSort(right);
-        // Сливаем отсортированные части
-        Merge(array, left, right);
-    }
-
-    /// <summary>
-    /// Слияние двух массивов
-    /// </summary>
-    /// <param name="array">Сортируемый массив</param>
-    /// <param name="left">Левая часть</param>
-    /// <param name="right">Правая часть</param>
-    private static void Merge(int[] array, int[] left, int[] right)
-    {
-        var i = 0;
-        var j = 0;
-        var n = left.Length + right.Length;
-        for (var k = 0; k < n; k++)
-        {
-            // Если элементы в левой части закончились или элемент в левой части меньше элемента в правой части
-            if (i < left.Length && (j >= right.Length || left[i] <= right[j]))
-            {
-                array[k] = left[i++];
-            }
-            else
-            {
-                array[k] = right[j++];
-            }
-        }
-    }
-
-    #endregion
 }

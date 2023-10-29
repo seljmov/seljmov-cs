@@ -1,5 +1,4 @@
-﻿using Seljmov.CS;
-using Seljmov.CS.Algorithms;
+﻿using Seljmov.CS.Algorithms;
 
 var random = new Random();
 var number = (int) Math.Pow(2, 3);
@@ -10,6 +9,6 @@ var start1 = DateTime.Now;
 Console.WriteLine("Start own");
 BubbleSort.Do(array1);
 Console.WriteLine($"End. Time -> {(DateTime.Now - start1).TotalMilliseconds} ms");
-`
+
 Console.WriteLine($"before ->\t {string.Join(", ", array2)}");
 Console.WriteLine($"after ->\t {string.Join(", ", array1)}");
