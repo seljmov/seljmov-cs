@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Seljmov.CS.Structures;
 
-namespace Seljmov.CS.Structures;
 public class OwnArray<T>
 {
     private T[]? _array;
